@@ -1,6 +1,7 @@
 package main
 
 import javax.swing.JFrame.EXIT_ON_CLOSE;
+import javax.swing.JFrame;
 
 public val mainFrame : MainFrame = MainFrame();
 
@@ -17,7 +18,9 @@ public fun main(args : Array<String>){
     
 }
 
-
+public class MainFrame : JFrame(){
+    
+}
 
 
 
