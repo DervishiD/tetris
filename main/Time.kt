@@ -13,6 +13,9 @@ public fun startTimer(){
 }
 
 private class Task : TimerTask(){
+    /*
+     * The action that the timer executes after each DELAY
+     */
     override fun run(){
     	
     }
