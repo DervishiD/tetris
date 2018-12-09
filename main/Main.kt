@@ -20,7 +20,7 @@ private fun initMainFrame(){
     mainFrame.setSize(FRAMEX, FRAMEY);
     mainFrame.setResizable(false);
     mainFrame.setLayout(null);
-    mainFrame.getContentPane().setBackground(java.awt.Color(255, 0, 0));
+    mainFrame.getContentPane().setBackground(RED);
     mainFrame.setVisible(true);
 }
 

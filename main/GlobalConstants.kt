@@ -8,6 +8,7 @@ public const val HALF_FRAMEX : Int = FRAMEX / 2;
 public const val HALF_FRAMEY : Int = FRAMEY / 2;
 
 public val WHITE : Color = Color.WHITE;
+public val RED : Color = Color.RED;
 
 
 

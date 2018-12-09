@@ -1,10 +1,13 @@
 package screen
 
+import java.awt.Color
 import java.awt.Font
-import java.awt.Font.PLAIN
-import main.HALF_FRAMEX
+import java.awt.Font.BOLD
 import main.FRAMEX
 import main.FRAMEY
+import main.HALF_FRAMEX
+import main.HALF_FRAMEY
+import main.WHITE
 
 public const val START_BUTTON_WIDTH : Int = 200;
 public const val START_BUTTON_HEIGHT : Int = 60;
@@ -26,7 +29,16 @@ public const val STATS_BUTTON_HEIGHT : Int = 60;
 public const val STATS_BUTTON_X : Int = HALF_FRAMEX - STATS_BUTTON_WIDTH / 2;
 public const val STATS_BUTTON_Y : Int = OPTIONS_BUTTON_Y + OPTIONS_BUTTON_HEIGHT;
 
-public val DEFAULT_BUTTON_FONT : Font = Font("Arial", PLAIN, 16);
+public const val TITLE_WIDTH : Int = 150;
+public const val TITLE_HEIGHT : Int = 100;
+public const val TITLE_X : Int = HALF_FRAMEX - TITLE_WIDTH / 2;
+public const val TITLE_Y : Int = FRAMEY / 3 - TITLE_HEIGHT / 2;
+
+public val DEFAULT_BUTTON_FONT : Font = Font("Monospaced", BOLD, 16);
+public val DEFAULT_BUTTON_COLOR : Color = WHITE;
+
+public val TITLE_FONT : Font = Font("Monospaced", BOLD, 40);
+public val TITLE_COLOR : Color = Color.BLACK;
 
 
 
