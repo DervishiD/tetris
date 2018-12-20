@@ -9,28 +9,21 @@ import main.FRAMEX
 import main.FRAMEY
 import main.mainFrame
 
-public open class Screen : JPanel(){
-    
-}
-
-public class MainMenuScreen : Screen(){
+public class MainMenuScreen : JPanel(){
     
     init{
         initStartMenu();
     }
     
-    private fun initStartMenu() : MainMenuScreen{
-	    var result : MainMenuScreen = MainMenuScreen();
-	    result.setBounds(0, 0, FRAMEX, FRAMEY);
-	    result.setLayout(null);
+    private fun initStartMenu(){
+	    this.setBounds(0, 0, FRAMEX, FRAMEY);
+	    this.setLayout(null);
 	    
-	    result.add(startButton());
-	    result.add(exitButton());
-	    result.add(optionsButton());
-	    result.add(statsButton());
-	    result.add(titleLabel());
-	    
-	    return result;
+	    this.add(startButton());
+	    this.add(exitButton());
+	    this.add(optionsButton());
+	    this.add(statsButton());
+	    this.add(titleLabel());
 	}
     
     private fun startButton() : JButton{
@@ -86,18 +79,19 @@ public class MainMenuScreen : Screen(){
     
 }
 
-public class GameLaunchingScreen : Screen(){
+
+
+
+public class GameLaunchingScreen : JPanel(){
     
     init{
         initGameLaunchMenu();
     }
     
-    private fun initGameLaunchMenu() : GameLaunchingScreen{
-        var result : GameLaunchingScreen = GameLaunchingScreen();
-        result.setBounds(0, 0, FRAMEX, FRAMEY);
-        result.setLayout(null /*TO REVIEW*/);
+    private fun initGameLaunchMenu(){
+        this.setBounds(0, 0, FRAMEX, FRAMEY);
+        this.setLayout(null /*TO REVIEW*/);
         
-        return result;
     }
     
 }
