@@ -3,6 +3,8 @@ package screen
 import java.awt.Color
 import java.awt.Font
 import java.awt.Font.BOLD
+import java.awt.event.ActionEvent
+import java.awt.event.ActionListener
 import main.FRAMEX
 import main.FRAMEY
 import main.HALF_FRAMEX
@@ -39,6 +41,11 @@ public val DEFAULT_BUTTON_COLOR : Color = WHITE;
 
 public val TITLE_FONT : Font = Font("Monospaced", BOLD, 40);
 public val TITLE_COLOR : Color = Color.BLACK;
+
+public val ALLOCATED_GRID_WIDTH = FRAMEX * 3 / 4;
+public val ALLOCATED_GRID_HEIGHT = FRAMEY * 5 / 6;
+
+
 
 
 

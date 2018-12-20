@@ -1,6 +1,9 @@
 package game
 
-class Grid {
+import screen.ALLOCATED_GRID_WIDTH
+import screen.ALLOCATED_GRID_HEIGHT
+
+public class Grid {
     
     private var width : Int
     	get() = width
@@ -14,19 +17,24 @@ class Grid {
             this.height = value;
         };
     
-    private var grid : Array<Array<Cell>> = Array(height, {Array(width, {Cell()})});
+    private var squareSize : Int
+        get() = squareSize
+        set(value : Int){
+            this.squareSize = value;
+        };
+    
+    private var grid : Array<Array<Cell>>? = null;
         
-    constructor(){
-        //TODO
+    public constructor(blockSize : Int){
+        this.width = blockSize * blockSize;
+        this.squareSize = ALLOCATED_GRID_WIDTH / width;
+        this.height = ALLOCATED_GRID_HEIGHT / squareSize;
+        this.grid = Array(height, {Array(width, {Cell()})});
     }
     
 }
 
 
-
-class Cell{
-    
-}
 
 
 

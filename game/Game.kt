@@ -1,17 +1,20 @@
 package game
 
-class Game {
+public class Game {
     private var n : Int
         get() = this.n
         set(value : Int){
             this.n = value;
-            this.gridSize = n * n;
         };
-    private var gridSize : Int = 0
-        get() = this.gridSize;
     
-    constructor(n : Int){
+    private var grid : Grid? = null
+    	set(value : Grid?){
+            this.grid = value;
+        };
+    
+    public constructor(n : Int){
         this.n = n;
+        this.grid = Grid(n);
     }
 }
 

@@ -8,23 +8,20 @@ import javax.swing.JPanel
 import main.FRAMEX
 import main.FRAMEY
 import main.mainFrame
+import manager.ScreenManager
 
 public class MainMenuScreen : JPanel(){
     
     init{
-        initStartMenu();
+        this.setBounds(0, 0, FRAMEX, FRAMEY);
+        this.setLayout(null);
+        
+        this.add(startButton());
+        this.add(exitButton());
+        this.add(optionsButton());
+        this.add(statsButton());
+        this.add(titleLabel());
     }
-    
-    private fun initStartMenu(){
-	    this.setBounds(0, 0, FRAMEX, FRAMEY);
-	    this.setLayout(null);
-	    
-	    this.add(startButton());
-	    this.add(exitButton());
-	    this.add(optionsButton());
-	    this.add(statsButton());
-	    this.add(titleLabel());
-	}
     
     private fun startButton() : JButton{
 	    var result : JButton = JButton();
@@ -32,6 +29,9 @@ public class MainMenuScreen : JPanel(){
 	    result.setBackground(DEFAULT_BUTTON_COLOR);
 	    result.setText("Start");
 	    result.addActionListener{println("TODO : WRITE STARTBUTTON ACTIONLISTENER");};
+        result.addActionListener{
+            ScreenManager.gameLaunchMenu();
+        };
 	    result.setBounds(START_BUTTON_X, START_BUTTON_Y, START_BUTTON_WIDTH, START_BUTTON_HEIGHT);
 	    return result;
 	}
@@ -91,7 +91,6 @@ public class GameLaunchingScreen : JPanel(){
     private fun initGameLaunchMenu(){
         this.setBounds(0, 0, FRAMEX, FRAMEY);
         this.setLayout(null /*TO REVIEW*/);
-        
     }
     
 }
