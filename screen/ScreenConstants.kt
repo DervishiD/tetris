@@ -3,12 +3,14 @@ package screen
 import java.awt.Color
 import java.awt.Font
 import java.awt.Font.BOLD
-import java.awt.event.ActionEvent
-import java.awt.event.ActionListener
+import java.awt.event.WindowEvent
+import java.awt.event.WindowEvent.WINDOW_CLOSING
+import main.Action
 import main.FRAMEX
 import main.FRAMEY
 import main.HALF_FRAMEX
 import main.HALF_FRAMEY
+import main.mainFrame
 import main.WHITE
 
 public const val START_BUTTON_WIDTH : Int = 200;
@@ -45,6 +47,10 @@ public val TITLE_COLOR : Color = Color.BLACK;
 public val ALLOCATED_GRID_WIDTH = FRAMEX * 3 / 4;
 public val ALLOCATED_GRID_HEIGHT = FRAMEY * 5 / 6;
 
+public val EXIT_ACTION : Action = {
+    mainFrame.setVisible(false);
+    mainFrame.dispatchEvent(WindowEvent(mainFrame, WINDOW_CLOSING));
+};
 
 
 

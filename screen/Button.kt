@@ -15,7 +15,21 @@ class Button(a : Action) : JLabel(){
     }
     
     public fun click(){
-        action!!.act();
+        action!!.invoke();
     }
     
 }
+
+public fun initExitButton() : Button{
+    var result : Button = Button(EXIT_ACTION);
+    result.setFont(DEFAULT_BUTTON_FONT);
+    result.setBackground(DEFAULT_BUTTON_COLOR);
+    result.setText("X");
+    result.setBounds(EXIT_BUTTON_X, EXIT_BUTTON_Y, EXIT_BUTTON_WIDTH, EXIT_BUTTON_HEIGHT);
+    return result;
+}
+
+
+
+
+
