@@ -7,10 +7,22 @@ import javax.swing.JLabel
 import javax.swing.JPanel
 import main.FRAMEX
 import main.FRAMEY
+import main.Key
 import main.mainFrame
 import manager.ScreenManager
 
-public class MainMenuScreen : JPanel(){
+public abstract class Screen : JPanel(){
+    private var buttons : ArrayList<Button> = ArrayList<Button>();
+    
+    public fun addButton(b : Button){
+        buttons.add(b);
+    }
+    
+    public abstract fun reactTo(key : Key);
+    
+}
+
+public class MainMenuScreen : Screen(){
     
     init{
         this.setBounds(0, 0, FRAMEX, FRAMEY);
@@ -77,12 +89,16 @@ public class MainMenuScreen : JPanel(){
 	    return result;
 	}
     
+    override public fun reactTo(key : Key){
+        //TODO -- REACTION TO KEYBOARD INPUTS
+    }
+    
 }
 
 
 
 
-public class GameLaunchingScreen : JPanel(){
+public class GameLaunchingScreen : Screen(){
     
     init{
         initGameLaunchMenu();
@@ -91,6 +107,10 @@ public class GameLaunchingScreen : JPanel(){
     private fun initGameLaunchMenu(){
         this.setBounds(0, 0, FRAMEX, FRAMEY);
         this.setLayout(null /*TO REVIEW*/);
+    }
+    
+    override public fun reactTo(key : Key){
+        //TODO -- REACTION TO KEYBOARD INPUTS
     }
     
 }

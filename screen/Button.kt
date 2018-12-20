@@ -5,17 +5,22 @@ import main.Action
 
 class Button(a : Action) : JLabel(){
     
-    private var action : Action? = null
-    	set(a : Action?){
-            this.action = a;
-        };
+    private var action : Action = {};
     
     init{
         this.action = a;
     }
     
     public fun click(){
-        action!!.invoke();
+        action.invoke();
+    }
+    
+    public fun focus(){
+        //CHANGE IMAGE
+    }
+    
+    public fun unfocus(){
+        //CHANGE IMAGE
     }
     
 }

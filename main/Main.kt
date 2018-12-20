@@ -5,7 +5,7 @@ import javax.swing.JFrame.MAXIMIZED_BOTH
 import javax.swing.JFrame
 import manager.ScreenManager
 
-public val mainFrame : MainFrame = MainFrame();
+public val mainFrame : JFrame = JFrame();
 
 public fun main(args : Array<String>){
     init();
@@ -22,16 +22,16 @@ private fun initMainFrame(){
     mainFrame.setLayout(null);
     mainFrame.setExtendedState(MAXIMIZED_BOTH); 
     mainFrame.setUndecorated(true);
-    mainFrame.getContentPane().setBackground(RED);
+    mainFrame.getContentPane().setBackground(RED); // IF AN ERROR OCCURS. SHOULD REMOVE IT
+    mainFrame.addKeyListener(GameKeyListener());
     mainFrame.setVisible(true);
+    mainFrame.requestFocus();
 }
 
 private fun launchProgram(){
     ScreenManager.start();
     startTimer();
 }
-
-public class MainFrame : JFrame(){}
 
 
 
