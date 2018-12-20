@@ -1,6 +1,7 @@
 package main
 
 import javax.swing.JFrame.EXIT_ON_CLOSE
+import javax.swing.JFrame.MAXIMIZED_BOTH
 import javax.swing.JFrame
 import manager.ScreenManager
 
@@ -17,9 +18,10 @@ private fun init(){
 
 private fun initMainFrame(){
     mainFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-    mainFrame.setSize(FRAMEX, FRAMEY);
     mainFrame.setResizable(false);
     mainFrame.setLayout(null);
+    mainFrame.setExtendedState(MAXIMIZED_BOTH); 
+    mainFrame.setUndecorated(true);
     mainFrame.getContentPane().setBackground(RED);
     mainFrame.setVisible(true);
 }
