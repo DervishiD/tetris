@@ -49,7 +49,9 @@ public class MainMenuScreen : Screen(){
 	}
     
     override public fun reactTo(key : Key){
-        //TODO -- REACTION TO KEYBOARD INPUTS
+        when(key){
+            //TODO -- IT'S A SWITCH BUT OP
+        }
     }
     
     override public fun save(){
