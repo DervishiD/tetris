@@ -2,12 +2,15 @@ package main
 
 import java.util.Timer;
 import java.util.TimerTask
+import manager.ScreenManager
 
 private const val DELAY = 30;
 
 private val STANDARD : Action = {
     mainFrame.repaint();
-    //TODO -- REACT TO KEY INPUT
+    for(i : Int in pressedKeys){
+        ScreenManager.reactToKey(i);
+    }
 };
 
 private val IN_GAME : Action = {

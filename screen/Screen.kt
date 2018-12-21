@@ -19,6 +19,7 @@ public abstract class Screen : JPanel(){
     }
     
     public abstract fun reactTo(key : Key);
+    public abstract fun save();
     
 }
 
@@ -93,6 +94,10 @@ public class MainMenuScreen : Screen(){
         //TODO -- REACTION TO KEYBOARD INPUTS
     }
     
+    override public fun save(){
+        //TODO -- SAVE ACTION
+    }
+    
 }
 
 
@@ -111,6 +116,10 @@ public class GameLaunchingScreen : Screen(){
     
     override public fun reactTo(key : Key){
         //TODO -- REACTION TO KEYBOARD INPUTS
+    }
+    
+    override public fun save(){
+        //TODO -- SAVE ACTION
     }
     
 }

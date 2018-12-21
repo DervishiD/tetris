@@ -13,18 +13,18 @@ public val HALF_FRAMEY : Int = FRAMEY / 2;
 public val WHITE : Color = Color.WHITE;
 public val RED : Color = Color.RED;
 
-public val pressedKeys : ArrayList<Char> = ArrayList<Char>();
+public val pressedKeys : ArrayList<Int> = ArrayList<Int>();
 
 public class GameKeyListener : KeyListener{
     
     override public fun keyTyped(e : KeyEvent) {}
 
     override public fun keyPressed(e : KeyEvent) {
-        pressedKeys.add(e.keyChar);
+        pressedKeys.add(e.keyCode);
     }
 
     override public fun keyReleased(e : KeyEvent) {
-        pressedKeys.remove(e.keyChar);
+        pressedKeys.remove(e.keyCode);
     }
     
 }
