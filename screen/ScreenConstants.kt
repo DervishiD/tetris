@@ -12,6 +12,17 @@ import main.HALF_FRAMEX
 import main.HALF_FRAMEY
 import main.mainFrame
 import main.WHITE
+import manager.ScreenManager
+
+
+
+//TODO -- REPLACE BUTTONS WHEN NEEDED
+//I.E. OPTIONS NIT NECESSARILY AT THE SAME PLACE IN PAUSE MENU
+//AND IN START MENU FOR EXAMPLE
+//I.E. ADD MORE CONSTANTS
+
+
+
 
 public const val START_BUTTON_WIDTH : Int = 200;
 public const val START_BUTTON_HEIGHT : Int = 60;
@@ -50,6 +61,20 @@ public val ALLOCATED_GRID_HEIGHT = FRAMEY * 5 / 6;
 public val EXIT_ACTION : Action = {
     mainFrame.setVisible(false);
     mainFrame.dispatchEvent(WindowEvent(mainFrame, WINDOW_CLOSING));
+};
+
+public val START_ACTION : Action = {
+    ScreenManager.gameLaunchMenu();
+};
+
+public val OPTIONS_ACTION : Action = {
+    //TODO
+    println("TODO : WRITE OPTIONS ACTION");
+};
+
+public val STATS_ACTION : Action = {
+    //TODO
+    println("TODO : WRITE STATS ACTION");
 };
 
 

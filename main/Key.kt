@@ -1,17 +1,28 @@
 package main
 
-import java.awt.event.KeyEvent
+import java.awt.event.KeyEvent.VK_A
+import java.awt.event.KeyEvent.VK_D
+import java.awt.event.KeyEvent.VK_DOWN
+import java.awt.event.KeyEvent.VK_ENTER
+import java.awt.event.KeyEvent.VK_ESCAPE
+import java.awt.event.KeyEvent.VK_LEFT
+import java.awt.event.KeyEvent.VK_RIGHT
+import java.awt.event.KeyEvent.VK_S
+import java.awt.event.KeyEvent.VK_SPACE
+import java.awt.event.KeyEvent.VK_TAB
+import java.awt.event.KeyEvent.VK_UP
+import java.awt.event.KeyEvent.VK_W
 
 enum class Key(vararg codes : Int){
     
-    LEFT(KeyEvent.VK_A, KeyEvent.VK_LEFT),
-    RIGHT(KeyEvent.VK_D, KeyEvent.VK_RIGHT),
-    UP(KeyEvent.VK_W, KeyEvent.VK_UP),
-    DOWN(KeyEvent.VK_S, KeyEvent.VK_DOWN),
-    ENTER(KeyEvent.VK_ENTER),
-    ESCAPE(KeyEvent.VK_ESCAPE),
-    TAB(KeyEvent.VK_TAB),
-    SPACE(KeyEvent.VK_SPACE);
+    LEFT(VK_A, VK_LEFT),
+    RIGHT(VK_D, VK_RIGHT),
+    UP(VK_W, VK_UP),
+    DOWN(VK_S, VK_DOWN),
+    ENTER(VK_ENTER),
+    ESCAPE(VK_ESCAPE),
+    TAB(VK_TAB),
+    SPACE(VK_SPACE);
     
     private var codes : IntArray = IntArray(0);
     

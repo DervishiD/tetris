@@ -4,38 +4,20 @@ import java.util.Timer;
 import java.util.TimerTask
 import manager.ScreenManager
 
-private const val DELAY = 30;
+private const val DELAY : Long = 30;
 
-private val STANDARD : Action = {
-    mainFrame.repaint();
+private val STANDARD_ACTION : Action = {
     for(i : Int in pressedKeys){
         ScreenManager.reactToKey(i);
     }
-};
-
-private val IN_GAME : Action = {
-    //TODO -- IN GAME TIMER ACTION
-    //TODO -- REACT TO KEY INPUT
+    mainFrame.repaint();
 };
 
 private var timer : Timer = Timer(false);
-private var standardTask : Task = Task(STANDARD);
-private var inGameTask : Task = Task(IN_GAME);
+private var standardTask : Task = Task(STANDARD_ACTION);
 
 public fun startTimer(){
-    timer.scheduleAtFixedRate(standardTask, 0, DELAY.toLong());
-}
-
-public fun switchToGame(){
-    timer.cancel();
-    timer.purge();
-    timer.scheduleAtFixedRate(inGameTask, 0, DELAY.toLong());
-}
-
-public fun switchToStandard(){
-    timer.cancel();
-    timer.purge();
-    timer.scheduleAtFixedRate(standardTask, 0, DELAY.toLong());
+    timer.scheduleAtFixedRate(standardTask, 0, DELAY);
 }
 
 private class Task(action : Action) : TimerTask(){

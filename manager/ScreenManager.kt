@@ -14,7 +14,8 @@ public class ScreenManager {
         
         @JvmStatic
         public fun start(){
-            setScreen(startMenu);
+            mainFrame.setContentPane(startMenu);
+            currentScreen = startMenu;
         }
         
         @JvmStatic
