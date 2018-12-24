@@ -2,34 +2,36 @@ package screen
 
 import main.Key
 import main.mainFrame
-import screen.Screen
-import screen.startButton
-import screen.startMenu
-import screen.gameLaunchingScreen
 
 public class ScreenManager {
     public companion object{
         
         @JvmStatic
         private var currentScreen : Screen = startMenu
-        
+
+        @JvmStatic
+        private var previousScreen : Screen = startMenu
+
         @JvmStatic
         public fun start(){
             mainFrame.contentPane = startMenu
             currentScreen = startMenu
-            startButton.focus()
         }
-        
+
         @JvmStatic
-        public fun gameLaunchMenu(){
-            setScreen(gameLaunchingScreen)
-        }
-        
-        @JvmStatic
-        private fun setScreen(screen : Screen){
+        public fun toPreviousScreen(){
             currentScreen.save()
-            mainFrame.contentPane = screen
+            currentScreen = currentScreen.previousScreen()
+            previousScreen = currentScreen.previousScreen()
+            mainFrame.contentPane = currentScreen
+        }
+
+        @JvmStatic
+        public fun setScreen(screen : Screen){
+            currentScreen.save()
+            previousScreen = currentScreen.previousScreen()
             currentScreen = screen
+            mainFrame.contentPane = currentScreen
         }
         
         @JvmStatic

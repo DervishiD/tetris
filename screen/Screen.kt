@@ -6,6 +6,8 @@ import main.Key
 public abstract class Screen : JPanel(){
     private var buttons : ArrayList<Button> = ArrayList<Button>()
     private var currentButtonIndex : Int = 0
+
+    protected lateinit var previousScreen : Screen
     
     public fun addButton(b : Button){
         buttons.add(b) //As abstract object in the list
@@ -39,7 +41,11 @@ public abstract class Screen : JPanel(){
     protected fun clickButton(){
         currentButton().click()
     }
-    
+
+    public fun previousScreen() : Screen{
+        return previousScreen
+    }
+
     public abstract fun reactTo(key : Key)
     public abstract fun save()
     

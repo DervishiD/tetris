@@ -11,14 +11,17 @@ public class MainMenuScreen : Screen(){
     init{
         this.setBounds(0, 0, FRAMEX, FRAMEY)
         this.layout = null
-        
-        this.addButton(startButton)
+
+        previousScreen = this
+
+        this.addButton(newGameButton)
+        this.addButton(loadGameButton)
         this.addButton(optionsButton)
         this.addButton(statsButton)
         this.addButton(exitButton)
-        
+        newGameButton.focus()
+
         this.add(titleLabel()) // For the sake of having a title
-        
     }
     
     private fun titleLabel() : JLabel{
@@ -43,7 +46,7 @@ public class MainMenuScreen : Screen(){
     }
     
     override public fun save(){
-        //TODO -- SAVE ACTION
+        //TODO ? -- SAVE ACTION
     }
     
 }
