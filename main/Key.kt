@@ -21,22 +21,21 @@ enum class Key(vararg codes : Int){
     DOWN(VK_S, VK_DOWN),
     ENTER(VK_ENTER),
     ESCAPE(VK_ESCAPE),
-    TAB(VK_TAB),
     SPACE(VK_SPACE);
     
-    private var codes : IntArray = IntArray(0);
+    private var codes : IntArray = IntArray(0)
     
     init{
-        this.codes = codes;
+        this.codes = codes
     }
     
     public fun correspondsTo(code : Int) : Boolean{
         for(i : Int in codes){
             if(i == code){
-                return true;
+                return true
             }
         }
-        return false;
+        return false
     }
     
 }

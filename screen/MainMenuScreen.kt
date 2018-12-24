@@ -9,31 +9,31 @@ import main.Key.*
 public class MainMenuScreen : Screen(){
     
     init{
-        this.setBounds(0, 0, FRAMEX, FRAMEY);
-        this.setLayout(null);
+        this.setBounds(0, 0, FRAMEX, FRAMEY)
+        this.layout = null
         
-        this.addButton(startButton);
-        this.addButton(optionsButton);
-        this.addButton(statsButton);
-        this.addButton(exitButton);
+        this.addButton(startButton)
+        this.addButton(optionsButton)
+        this.addButton(statsButton)
+        this.addButton(exitButton)
         
-        this.add(titleLabel()); // For the sake of having a title
+        this.add(titleLabel()) // For the sake of having a title
         
     }
     
     private fun titleLabel() : JLabel{
-        var result : JLabel = JLabel("TETRIS");
-        result.setFont(TITLE_FONT);
-        result.setForeground(TITLE_COLOR);
-        result.setBounds(TITLE_X, TITLE_Y, TITLE_WIDTH, TITLE_HEIGHT);
-        return result;
+        var result : JLabel = JLabel("TETRIS")
+        result.font = TITLE_FONT
+        result.foreground = TITLE_COLOR
+        result.setBounds(TITLE_X, TITLE_Y, TITLE_WIDTH, TITLE_HEIGHT)
+        return result
     }
     
     override public fun reactTo(key : Key){
         when(key){
             LEFT, UP ->
                 previousButton()
-            DOWN, RIGHT, TAB ->
+            DOWN, RIGHT ->
                 nextButton()
             ESCAPE ->
                 EXIT_ACTION.invoke()
