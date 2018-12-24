@@ -86,7 +86,7 @@ public val EXIT_ACTION : Action = {
 };
 
 public val NEW_GAME_ACTION : Action = {
-    ScreenManager.setScreen(gameLaunchingScreen)
+    ScreenManager.setScreen(newGameScreen)
 }
 
 public val LOAD_GAME_ACTION : Action = {

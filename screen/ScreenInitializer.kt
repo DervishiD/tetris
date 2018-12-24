@@ -3,7 +3,7 @@ package screen
 import javax.swing.JLabel.CENTER
 
 public val startMenu : MainMenuScreen by lazy{MainMenuScreen()}
-public val gameLaunchingScreen : GameLaunchingScreen by lazy{GameLaunchingScreen()}
+public val newGameScreen : NewGameScreen by lazy{NewGameScreen()}
 public val exitScreen : ExitScreen by lazy{ExitScreen()}
 
 public val exitButton : Button by lazy{initExitButton()}

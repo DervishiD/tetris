@@ -5,8 +5,8 @@ import main.FRAMEY
 import main.Key
 import main.Key.*
 
-public class GameLaunchingScreen : Screen(){
-    
+public class NewGameScreen : Screen(){
+
     init{
         this.setBounds(0, 0, FRAMEX, FRAMEY)
         this.layout = null
@@ -24,11 +24,11 @@ public class GameLaunchingScreen : Screen(){
             //TODO -- EVERYTHING ELSE
         }
     }
-    
+
     override public fun save(){
 
     }
-    
+
 }
 
 
