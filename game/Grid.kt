@@ -23,7 +23,7 @@ public class Grid {
             this.squareSize = value;
         };
     
-    private var grid : Array<Array<Cell>>? = null;
+    private var grid : Array<Array<Cell>>;
         
     public constructor(blockSize : Int){
         this.width = blockSize * blockSize;

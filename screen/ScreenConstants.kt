@@ -59,6 +59,7 @@ public val ALLOCATED_GRID_WIDTH = FRAMEX * 3 / 4;
 public val ALLOCATED_GRID_HEIGHT = FRAMEY * 5 / 6;
 
 public val EXIT_ACTION : Action = {
+    println("YOU SHOULD REALLY CREATE SOME SORT OF EXIT MENU YOU KNOW. NOW, IT'S COARSE AND ROUGH.");
     mainFrame.setVisible(false);
     mainFrame.dispatchEvent(WindowEvent(mainFrame, WINDOW_CLOSING));
 };
