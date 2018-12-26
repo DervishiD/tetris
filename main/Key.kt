@@ -19,9 +19,8 @@ enum class Key(vararg codes : Int){
     RIGHT(VK_D, VK_RIGHT),
     UP(VK_W, VK_UP),
     DOWN(VK_S, VK_DOWN),
-    ENTER(VK_ENTER),
-    ESCAPE(VK_ESCAPE),
-    SPACE(VK_SPACE);
+    ENTER(VK_ENTER, VK_SPACE),
+    ESCAPE(VK_ESCAPE);
     
     private var codes : IntArray = IntArray(0)
     

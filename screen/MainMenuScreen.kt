@@ -32,7 +32,7 @@ public class MainMenuScreen : Screen(){
         return result
     }
     
-    override public fun reactTo(key : Key){
+    public override fun reactTo(key : Key){
         when(key){
             LEFT, UP ->
                 previousButton()
@@ -40,13 +40,13 @@ public class MainMenuScreen : Screen(){
                 nextButton()
             ESCAPE ->
                 EXIT_ACTION.invoke()
-            SPACE, ENTER ->
+            ENTER ->
                 clickButton()
         }
     }
     
-    override public fun save(){
-        //TODO ? -- SAVE ACTION
+    public override fun save(){
+        resetList()
     }
     
 }

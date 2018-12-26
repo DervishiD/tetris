@@ -45,7 +45,7 @@ public fun initLoadGameButton() : Button{
     result.background = DEFAULT_BUTTON_COLOR
     result.horizontalAlignment = CENTER
     result.verticalAlignment = CENTER
-    result.text = "Start"
+    result.text = "Load Game"
     result.setBounds(LOAD_GAME_BUTTON_X, LOAD_GAME_BUTTON_Y, LOAD_GAME_BUTTON_WIDTH, LOAD_GAME_BUTTON_HEIGHT)
     return result
 }

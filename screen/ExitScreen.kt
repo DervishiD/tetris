@@ -21,7 +21,7 @@ class ExitScreen : Screen() {
 
     public override fun reactTo(key : Key){
         when(key){
-            ENTER, SPACE ->
+            ENTER ->
                 clickButton()
             LEFT ->
                 previousButton()

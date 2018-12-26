@@ -1,13 +1,13 @@
 package screen
 
+import java.awt.Graphics
 import javax.swing.JLabel
 import main.Action
-import java.awt.Graphics
 
-class Button(onClick : Action) : JLabel(){
+open class Button(onClick : Action) : JLabel(){
     
     private var action : Action = {}
-    
+
     init{
         this.action = onClick
     }

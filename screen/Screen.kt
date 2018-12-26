@@ -14,7 +14,7 @@ public abstract class Screen : JPanel(){
         this.add(b)    //As JLabel on a JPanel
     }
     
-    private fun currentButton() : Button{
+    protected fun currentButton() : Button{
         return buttons[currentButtonIndex]
     }
     
@@ -40,6 +40,10 @@ public abstract class Screen : JPanel(){
     
     protected fun clickButton(){
         currentButton().click()
+    }
+
+    protected fun resetList(){
+        currentButtonIndex = 0
     }
 
     public fun previousScreen() : Screen{
