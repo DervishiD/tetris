@@ -15,7 +15,12 @@ public class NewGameScreen : Screen(){
 
         previousScreen = startMenu
 
+        addButton(nSelector)
         addButton(backButton)
+
+        this.add(nQuestion)
+
+        nSelector.focus()
 
     }
 
@@ -30,8 +35,13 @@ public class NewGameScreen : Screen(){
                 }
             ENTER ->
                 if(currentButton() is Selector){
-                    focusedSelector = currentButton() as Selector
-                    focusedSelector!!.focus()
+                    if(focusedSelector == null){
+                        focusedSelector = currentButton() as Selector
+                        focusedSelector!!.activate()
+                    }else{
+                        focusedSelector!!.deactivate()
+                        focusedSelector = null
+                    }
                 }else{
                     clickButton()
                     focusedSelector?.unfocus()

@@ -21,17 +21,9 @@ public class MainMenuScreen : Screen(){
         this.addButton(exitButton)
         newGameButton.focus()
 
-        this.add(titleLabel()) // For the sake of having a title
+        this.add(titleLabel) // For the sake of having a title
     }
-    
-    private fun titleLabel() : JLabel{
-        var result : JLabel = JLabel("TETRIS")
-        result.font = TITLE_FONT
-        result.foreground = TITLE_COLOR
-        result.setBounds(TITLE_X, TITLE_Y, TITLE_WIDTH, TITLE_HEIGHT)
-        return result
-    }
-    
+
     public override fun reactTo(key : Key){
         when(key){
             LEFT, UP ->

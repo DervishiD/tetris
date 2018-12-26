@@ -13,10 +13,12 @@ class ExitScreen : Screen() {
         this.layout = null
         previousScreen = startMenu
 
-        addQuestion()
         addButton(confirmExitButton)
         addButton(dismissExitButton)
         confirmExitButton.focus()
+
+        this.add(exitQuestion)
+
     }
 
     public override fun reactTo(key : Key){
@@ -33,15 +35,5 @@ class ExitScreen : Screen() {
     }
 
     public override fun save(){/*NOTHING*/}
-
-    private fun addQuestion(){
-        var result : JLabel = JLabel("Are you sure you want to quit?")
-        result.font = EXIT_FONT
-        result.foreground = EXIT_COLOR
-        result.horizontalAlignment = JLabel.CENTER
-        result.verticalAlignment = JLabel.CENTER
-        result.setBounds(EXIT_X, EXIT_Y, EXIT_WIDTH, EXIT_HEIGHT)
-        this.add(result)
-    }
 
 }
