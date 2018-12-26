@@ -59,10 +59,13 @@ public val QUESTION_COLOR : Color = Color.BLACK                 //EVENTUALLY REW
 public val N_QU_WIDTH : Int = FRAMEX
 public const val N_QU_HEIGHT : Int = 100                    //EVENTUALLY REWRITE THE QUESTION ANYWAY
 public const val N_QU_X : Int = 0
-public val N_QU_Y : Int = FRAMEY / 12
+public val N_QU_Y : Int = FRAMEY / 4
 
 public val N_SELECTOR_X : Int = FRAMEX / 2
-public val N_SELECTOR_Y : Int = FRAMEX / 6
+public val N_SELECTOR_Y : Int = FRAMEY / 3
+
+public val START_BUTTON_X : Int = N_SELECTOR_X
+public val START_BUTTON_Y : Int = FRAMEY / 2
 
 public val ALLOCATED_GRID_WIDTH = FRAMEX * 3 / 4
 public val ALLOCATED_GRID_HEIGHT = FRAMEY * 5 / 6
@@ -99,6 +102,7 @@ public val CONFIRM_EXIT_ACTION : Action = {
     mainFrame.dispatchEvent(WindowEvent(mainFrame, WINDOW_CLOSING))
 }
 
+public val START_ACTION : Action = {println("TODO -- START BUTTON ACTION")}
 
 
 

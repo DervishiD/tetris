@@ -12,21 +12,21 @@ public val exitScreen : ExitScreen by lazy{ExitScreen()}
 //BUTTONS-----------------------------------------
 
 public val exitButton : Button by lazy{Button(EXIT_ACTION, EXIT_BUTTON_X, EXIT_BUTTON_Y, "X")}
+public val backButton : Button by lazy{Button(BACK_ACTION, BACK_BUTTON_X, BACK_BUTTON_Y, "<-")}
 
 public val newGameButton : Button by lazy{Button(NEW_GAME_ACTION, NEW_GAME_BUTTON_X, NEW_GAME_BUTTON_Y, "New Game")}
 public val loadGameButton : Button by lazy{Button(LOAD_GAME_ACTION, LOAD_GAME_BUTTON_X, LOAD_GAME_BUTTON_Y, "Load Game")}
 public val optionsButton : Button by lazy{Button(OPTIONS_ACTION, OPTIONS_BUTTON_X, OPTIONS_BUTTON_Y, "Options")}
 public val statsButton : Button by lazy{Button(STATS_ACTION, STATS_BUTTON_X, STATS_BUTTON_Y, "Stats")}
 
-public val backButton : Button by lazy{Button(BACK_ACTION, BACK_BUTTON_X, BACK_BUTTON_Y, "<-")}
-
 public val confirmExitButton : Button by lazy{Button(CONFIRM_EXIT_ACTION, CONFIRM_EXIT_BUTTON_X, CONFIRM_EXIT_BUTTON_Y, "Confirm")}
 public val dismissExitButton : Button by lazy{Button(BACK_ACTION, DISMISS_EXIT_BUTTON_X, DISMISS_EXIT_BUTTON_Y, "Dismiss")}
+
+public val startButton : Button by lazy{Button(START_ACTION, START_BUTTON_X, START_BUTTON_Y, "Start new game")}
 
 //SELECTORS-----------------------------------------
 
 public val nSelector : Selector by lazy{Selector(N_SELECTOR_X, N_SELECTOR_Y, arrayListOf("4", "5", "6"))} //TODO -- REFACTOR LIST
-
 
 //LABELS--------------------------------------------
 

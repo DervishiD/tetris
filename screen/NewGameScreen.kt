@@ -16,10 +16,9 @@ public class NewGameScreen : Screen(){
         previousScreen = startMenu
 
         addButton(nSelector)
+        addButton(startButton)
         addButton(backButton)
-
         this.add(nQuestion)
-
         nSelector.focus()
 
     }
