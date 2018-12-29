@@ -1,10 +1,8 @@
-package screen
+package display.screen
 
-import main.FRAMEX
-import main.FRAMEY
+import display.*
 import main.Key
 import main.Key.*
-import javax.swing.JLabel
 
 class ExitScreen : Screen() {
 

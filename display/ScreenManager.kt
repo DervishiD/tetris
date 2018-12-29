@@ -1,5 +1,6 @@
-package screen
+package display
 
+import display.screen.Screen
 import main.Key
 import main.mainFrame
 

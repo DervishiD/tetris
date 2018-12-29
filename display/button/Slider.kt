@@ -1,4 +1,4 @@
-package screen
+package display.button
 
 import java.awt.Graphics
 import main.FRAMEX

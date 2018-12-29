@@ -1,5 +1,6 @@
-package screen
+package display.button
 
+import display.DEFAULT_BUTTON_FONT
 import java.awt.Graphics
 import javax.swing.JLabel
 import main.Action

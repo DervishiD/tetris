@@ -1,5 +1,6 @@
-package screen
+package display.screen
 
+import display.button.Button
 import javax.swing.JPanel
 import main.backgroundColor
 import main.FRAMEX
@@ -25,7 +26,7 @@ public abstract class Screen : JPanel(){
         this.add(b)    //As JLabel on a JPanel
     }
 
-    protected fun currentButton() : Button{
+    protected fun currentButton() : Button {
         return buttons[currentButtonIndex]
     }
     
@@ -59,7 +60,7 @@ public abstract class Screen : JPanel(){
         currentButton().focus()
     }
 
-    public fun previousScreen() : Screen{
+    public fun previousScreen() : Screen {
         return previousScreen
     }
 

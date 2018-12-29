@@ -1,5 +1,7 @@
-package screen
+package display.screen
 
+import display.*
+import display.button.Slider
 import java.awt.Color
 import main.backgroundColor
 import main.Key

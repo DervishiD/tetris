@@ -1,7 +1,6 @@
-package screen
+package display
 
 import main.*
-import java.awt.Color
 import java.awt.Font
 import java.awt.Font.BOLD
 import java.awt.event.WindowEvent
@@ -26,12 +25,12 @@ public val BACK_BUTTON_X : Int = FRAMEX - 20 //HARDCODED
 public const val BACK_BUTTON_Y : Int = 14 //HARDCODED
 
 public const val TITLE_WIDTH : Int = 150
-public const val TITLE_HEIGHT : Int = 100                   //EVENTUALLY REWRITE THE TITLE ANYWAY
+public const val TITLE_HEIGHT : Int = 100
 public val TITLE_X : Int = FRAMEX / 2 - TITLE_WIDTH / 2
 public val TITLE_Y : Int = FRAMEY / 3 - TITLE_HEIGHT / 2
 
 public val EXIT_WIDTH : Int = FRAMEX
-public const val EXIT_HEIGHT : Int = 100                    //EVENTUALLY REWRITE THE QUESTION ANYWAY
+public const val EXIT_HEIGHT : Int = 100
 public const val EXIT_X : Int = 0
 public val EXIT_Y : Int = FRAMEY / 5
 
@@ -48,7 +47,7 @@ public val TITLE_FONT : Font = Font("Monospaced", BOLD, 40)
 public val QUESTION_FONT : Font = Font("Monospaced", BOLD, 24)
 
 public val N_QU_WIDTH : Int = FRAMEX
-public const val N_QU_HEIGHT : Int = 100                    //EVENTUALLY REWRITE THE QUESTION ANYWAY
+public const val N_QU_HEIGHT : Int = 100
 public const val N_QU_X : Int = 0
 public val N_QU_Y : Int = FRAMEY / 4
 

@@ -1,7 +1,7 @@
 package game
 
-import screen.ALLOCATED_GRID_WIDTH
-import screen.ALLOCATED_GRID_HEIGHT
+import display.ALLOCATED_GRID_WIDTH
+import display.ALLOCATED_GRID_HEIGHT
 
 public class Grid {
     

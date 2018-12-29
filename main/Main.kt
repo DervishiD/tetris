@@ -3,7 +3,7 @@ package main
 import javax.swing.JFrame.EXIT_ON_CLOSE
 import javax.swing.JFrame.MAXIMIZED_BOTH
 import javax.swing.JFrame
-import screen.ScreenManager
+import display.ScreenManager
 
 public val mainFrame : JFrame = JFrame()
 

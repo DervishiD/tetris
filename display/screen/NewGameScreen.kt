@@ -1,7 +1,7 @@
-package screen
+package display.screen
 
-import main.FRAMEX
-import main.FRAMEY
+import display.*
+import display.button.Selector
 import main.Key
 import main.Key.*
 

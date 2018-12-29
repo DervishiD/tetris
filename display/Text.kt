@@ -1,4 +1,4 @@
-package screen
+package display
 
 import main.textColor
 import java.awt.Font

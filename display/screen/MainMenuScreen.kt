@@ -1,8 +1,6 @@
-package screen
+package display.screen
 
-import javax.swing.JLabel
-import main.FRAMEX
-import main.FRAMEY
+import display.*
 import main.Key
 import main.Key.*
 

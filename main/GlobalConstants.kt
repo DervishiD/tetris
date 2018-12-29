@@ -5,7 +5,7 @@ import java.awt.Color.BLACK
 import java.awt.event.KeyEvent
 import java.awt.event.KeyListener
 import java.awt.Toolkit
-import screen.ScreenManager
+import display.ScreenManager
 
 public val FRAMEX : Int = (Toolkit.getDefaultToolkit().screenSize.getWidth()).toInt()
 public val FRAMEY : Int = (Toolkit.getDefaultToolkit().screenSize.getHeight()).toInt()
@@ -31,4 +31,3 @@ public class GameKeyListener : KeyListener{
     }
     
 }
-
