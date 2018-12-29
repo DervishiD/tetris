@@ -5,20 +5,23 @@ import java.awt.event.KeyEvent.VK_D
 import java.awt.event.KeyEvent.VK_DOWN
 import java.awt.event.KeyEvent.VK_ENTER
 import java.awt.event.KeyEvent.VK_ESCAPE
+import java.awt.event.KeyEvent.VK_I
+import java.awt.event.KeyEvent.VK_J
+import java.awt.event.KeyEvent.VK_K
+import java.awt.event.KeyEvent.VK_L
 import java.awt.event.KeyEvent.VK_LEFT
 import java.awt.event.KeyEvent.VK_RIGHT
 import java.awt.event.KeyEvent.VK_S
 import java.awt.event.KeyEvent.VK_SPACE
-import java.awt.event.KeyEvent.VK_TAB
 import java.awt.event.KeyEvent.VK_UP
 import java.awt.event.KeyEvent.VK_W
 
 enum class Key(vararg codes : Int){
     
-    LEFT(VK_A, VK_LEFT),
-    RIGHT(VK_D, VK_RIGHT),
-    UP(VK_W, VK_UP),
-    DOWN(VK_S, VK_DOWN),
+    LEFT(VK_A, VK_LEFT, VK_J),
+    RIGHT(VK_D, VK_RIGHT, VK_L),
+    UP(VK_W, VK_UP, VK_I),
+    DOWN(VK_S, VK_DOWN, VK_K),
     ENTER(VK_ENTER, VK_SPACE),
     ESCAPE(VK_ESCAPE);
     

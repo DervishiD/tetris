@@ -1,23 +1,25 @@
 package screen
 
 import main.Action
+import main.focusColor
+import main.textColor
 import java.awt.FontMetrics
 import java.awt.Graphics
 
-class Selector(xPos : Int, yPos : Int, options : ArrayList<String>, onClick: Action = {}) : Button(onClick, xPos, yPos) {
+public open class Selector(xPos : Int, yPos : Int, options : ArrayList<String>) : Button({}, xPos, yPos) {
 
     companion object {
         @JvmStatic
-        private val arrowWidth : Int = 20
+        protected val arrowWidth : Int = 20
         @JvmStatic
-        private val ARROW_COLOR : java.awt.Color = java.awt.Color(150, 100, 30) // TODO -- HARDCODED COLOUR
+        protected val ARROW_COLOR : java.awt.Color = java.awt.Color(150, 100, 30) // TODO -- HARDCODED COLOUR
     }
 
     private var options : ArrayList<String> = options
-    private var currentOption = 0
+    protected var currentOption = 0
 
     private lateinit var fm : FontMetrics
-    private var isActivated = false
+    protected var isActivated = false
 
     init{
         if(options.isEmpty())
@@ -58,7 +60,7 @@ class Selector(xPos : Int, yPos : Int, options : ArrayList<String>, onClick: Act
         var width : Int = fm.stringWidth(s) + 14
         var height : Int = fm.maxAscent + fm.maxDescent
         setBounds(xPos - width / 2 - arrowWidth, yPos - height / 2, width + 2 * arrowWidth, height)
-        g!!.color = foreground
+        g!!.color = if(hasFocus) focusColor else textColor
         g!!.drawString(s, 7 + arrowWidth, height - 7)
         g!!.fillRect(arrowWidth, 0, width, 5)
         g!!.fillRect(arrowWidth, 0, 5, bounds.height)

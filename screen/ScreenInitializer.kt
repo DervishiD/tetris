@@ -1,13 +1,11 @@
 package screen
 
-import javax.swing.JLabel
-import javax.swing.JLabel.CENTER
-
 //SCREENS-----------------------------------------
 
 public val startMenu : MainMenuScreen by lazy{MainMenuScreen()}
 public val newGameScreen : NewGameScreen by lazy{NewGameScreen()}
 public val exitScreen : ExitScreen by lazy{ExitScreen()}
+public val optionsScreen : OptionsScreen by lazy{OptionsScreen()}
 
 //BUTTONS-----------------------------------------
 
@@ -24,40 +22,34 @@ public val dismissExitButton : Button by lazy{Button(BACK_ACTION, DISMISS_EXIT_B
 
 public val startButton : Button by lazy{Button(START_ACTION, START_BUTTON_X, START_BUTTON_Y, "Start new game")}
 
+public val nightColorButton : Button by lazy{Button(NIGHT_COLOR_ACTION, NIGHT_COLOR_X, NIGHT_COLOR_Y, "Night mode")}
+
 //SELECTORS-----------------------------------------
 
 public val nSelector : Selector by lazy{Selector(N_SELECTOR_X, N_SELECTOR_Y, arrayListOf("4", "5", "6"))} //TODO -- REFACTOR LIST
 
+//SLIDERS ------------------------------------------
+
+public val rSlider : Selector by lazy {Slider(R_SELECTOR_Y, COLOR_ARGUMENTS)}
+public val gSlider : Selector by lazy {Slider(G_SELECTOR_Y, COLOR_ARGUMENTS)}
+public val bSlider : Selector by lazy {Slider(B_SELECTOR_Y, COLOR_ARGUMENTS)}
+
 //LABELS--------------------------------------------
 
-public val titleLabel : JLabel by lazy{
-    var result : JLabel = JLabel("TETRIS")
-    result.font = TITLE_FONT
-    result.foreground = TITLE_COLOR
-    result.horizontalAlignment = CENTER
-    result.verticalAlignment = CENTER
-    result.setBounds(TITLE_X, TITLE_Y, TITLE_WIDTH, TITLE_HEIGHT)
-    result
-}
+public val titleLabel : Text by lazy{Text("TETRIS", TITLE_FONT, TITLE_X, TITLE_Y, TITLE_WIDTH, TITLE_HEIGHT)}
 
-public val nQuestion : JLabel by lazy{
-    var result : JLabel = JLabel("Number of blocks per polynomios")
-    result.font = QUESTION_FONT
-    result.foreground = QUESTION_COLOR
-    result.horizontalAlignment = CENTER
-    result.verticalAlignment = CENTER
-    result.setBounds(N_QU_X, N_QU_Y, N_QU_WIDTH, N_QU_HEIGHT)
-    result
-}
+public val nQuestion : Text by lazy{Text("Number of blocks per polynomios", QUESTION_FONT, N_QU_X, N_QU_Y, N_QU_WIDTH, N_QU_HEIGHT)}
 
-public val exitQuestion : JLabel by lazy{
-    var result : JLabel = JLabel("Are you sure you want to quit?")
-    result.font = QUESTION_FONT
-    result.foreground = QUESTION_COLOR
-    result.horizontalAlignment = CENTER
-    result.verticalAlignment = CENTER
-    result.setBounds(EXIT_X, EXIT_Y, EXIT_WIDTH, EXIT_HEIGHT)
-    result
-}
+public val exitQuestion : Text by lazy{Text("Are you sure you want to quit?", QUESTION_FONT, EXIT_X, EXIT_Y, EXIT_WIDTH, EXIT_HEIGHT)}
+
+public val optionsLabel : Text by lazy{Text("OPTIONS", QUESTION_FONT, OPTIONS_LABEL_X, OPTIONS_LABEL_Y, OPTIONS_LABEL_WIDTH, OPTIONS_LABEL_HEIGHT)}
+
+public val rLabel : Text by lazy{Text("Red", QUESTION_FONT, R_LABEL_X, R_LABEL_Y, R_LABEL_WIDTH, R_LABEL_HEIGHT)}
+
+public val gLabel : Text by lazy{Text("Green", QUESTION_FONT, G_LABEL_X, G_LABEL_Y, G_LABEL_WIDTH, G_LABEL_HEIGHT)}
+
+public val bLabel : Text by lazy{Text("Blue", QUESTION_FONT, B_LABEL_X, B_LABEL_Y, B_LABEL_WIDTH, B_LABEL_HEIGHT)}
+
+
 
 

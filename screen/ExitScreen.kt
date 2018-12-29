@@ -9,8 +9,6 @@ import javax.swing.JLabel
 class ExitScreen : Screen() {
 
     init{
-        this.setBounds(0, 0, FRAMEX, FRAMEY)
-        this.layout = null
         previousScreen = startMenu
 
         addButton(confirmExitButton)
@@ -34,6 +32,8 @@ class ExitScreen : Screen() {
         }
     }
 
-    public override fun save(){/*NOTHING*/}
+    public override fun save(){
+        resetList()
+    }
 
 }

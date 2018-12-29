@@ -10,9 +10,6 @@ public class NewGameScreen : Screen(){
     private var focusedSelector : Selector? = null
 
     init{
-        this.setBounds(0, 0, FRAMEX, FRAMEY)
-        this.layout = null
-
         previousScreen = startMenu
 
         addButton(nSelector)

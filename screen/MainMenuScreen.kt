@@ -9,9 +9,6 @@ import main.Key.*
 public class MainMenuScreen : Screen(){
     
     init{
-        this.setBounds(0, 0, FRAMEX, FRAMEY)
-        this.layout = null
-
         previousScreen = this
 
         this.addButton(newGameButton)
