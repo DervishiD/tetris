@@ -1,13 +1,10 @@
 package game
 
-public class Game {
-    private var n : Int
-    private var grid : Grid
-    
-    public constructor(n : Int){
-        this.n = n
-        this.grid = Grid(n)
-    }
+public class Game(n : Int){
+    private var n : Int = n
+    public var score : Int = 0
+    public var grid : Grid = Grid(n)
+
 }
 
 

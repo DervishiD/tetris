@@ -25,7 +25,7 @@ private fun dBlue(c1 : Color, c2 : Color) : Double{
     return abs(c1.blue - c2.blue).toDouble()
 }
 
-private fun distance(c1 : Color, c2 : Color) : Double{
+public fun distance(c1 : Color, c2 : Color) : Double{
     return sqrt(dRed(c1, c2) * dRed(c1, c2) + dGreen(c1, c2) * dGreen(c1, c2) + dBlue(c1, c2) * dBlue(c1, c2))
 }
 

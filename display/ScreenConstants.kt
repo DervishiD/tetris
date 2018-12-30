@@ -1,5 +1,7 @@
 package display
 
+import display.screen.GameScreen
+import game.Game
 import main.*
 import java.awt.Font
 import java.awt.Font.BOLD
@@ -89,9 +91,6 @@ public val COLOR_ARGUMENTS : ArrayList<String> = arrayListOf("16", "32", "48", "
                                                              "144", "160", "176", "192",
                                                              "208", "224", "240", "255")
 
-public val ALLOCATED_GRID_WIDTH = FRAMEX * 3 / 4  //TODO -- CHANGE
-public val ALLOCATED_GRID_HEIGHT = FRAMEY * 5 / 6
-
 public val EXIT_ACTION : Action = {
     ScreenManager.setScreen(exitScreen)
 }
@@ -124,7 +123,9 @@ public val CONFIRM_EXIT_ACTION : Action = {
     mainFrame.dispatchEvent(WindowEvent(mainFrame, WINDOW_CLOSING))
 }
 
-public val START_ACTION : Action = {println("TODO -- START BUTTON ACTION")}
+public val START_ACTION : Action = {
+    ScreenManager.setScreen(GameScreen(Game(nSelector.selectedOption().toInt())))
+}
 
 public val NIGHT_COLOR_ACTION : Action = {
     backgroundColor = NIGHT_BACKGROUND

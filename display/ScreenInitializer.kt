@@ -7,6 +7,7 @@ import display.screen.ExitScreen
 import display.screen.MainMenuScreen
 import display.screen.NewGameScreen
 import display.screen.OptionsScreen
+import game.possibleN
 
 //SCREENS-----------------------------------------
 
@@ -34,7 +35,7 @@ public val nightColorButton : Button by lazy{ Button(NIGHT_COLOR_ACTION, NIGHT_C
 
 //SELECTORS-----------------------------------------
 
-public val nSelector : Selector by lazy{ Selector(N_SELECTOR_X, N_SELECTOR_Y, arrayListOf("4", "5", "6")) } //TODO -- REFACTOR LIST
+public val nSelector : Selector by lazy{ Selector(N_SELECTOR_X, N_SELECTOR_Y, possibleN()) } //TODO -- REFACTOR LIST
 
 //SLIDERS ------------------------------------------
 
