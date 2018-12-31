@@ -5,19 +5,38 @@ import java.awt.Color
 class Block(i : Int, j : Int, c : Color) {
 
     companion object {
-        @JvmStatic public fun surroundings(blocks : ArrayList<Block>) : HashSet<Block>{
-            var result : HashSet<Block> = HashSet<Block>()
+        @JvmStatic public fun surroundings(blocks : ArrayList<Block>) : ArrayList<Block>{
+            var result : ArrayList<Block> = ArrayList<Block>()
             for(b : Block in blocks){
-                result.add(Block(b.i - 1, b.j, b.color))
-                result.add(Block(b.i, b.j - 1, b.color))
-                result.add(Block(b.i + 1, b.j, b.color))
-                result.add(Block(b.i, b.j + 1, b.color))
-            }
-            for(b : Block in blocks){
-                result.remove(b)
+                val up : Block = Block(b.i - 1, b.j, b.color)
+                val down : Block = Block(b.i + 1, b.j, b.color)
+                val left : Block = Block(b.i, b.j - 1, b.color)
+                val right : Block = Block(b.i, b.j + 1, b.color)
+                if(!(listHas(blocks, up) || listHas(result, up))){
+                    result.add(up)
+                }
+                if(!(listHas(blocks, down) || listHas(result, down))){
+                    result.add(down)
+                }
+                if(!(listHas(blocks, left) || listHas(result, left))){
+                    result.add(left)
+                }
+                if(!(listHas(blocks, right) || listHas(result, right))){
+                    result.add(right)
+                }
             }
             return result
         }
+
+        @JvmStatic private fun listHas(blocks : ArrayList<Block>, b : Block) : Boolean{
+            for(a : Block in blocks){
+                if(a.i == b.i && a.j == b.j){
+                    return true
+                }
+            }
+            return false
+        }
+
     }
 
     public var i : Int = i

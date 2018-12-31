@@ -12,6 +12,46 @@ public class Grid(n : Int) {
     public val height : Int = 6 * n
     public val grid : Array<Array<Cell>> = Array(height){Array(width){Cell()}}
 
+    public fun clearLines() : Int{
+        for(i in (height - 1) downTo 0){
+            if(fullLine(i)){
+                clearLine(i)
+                lowerAbove(i)
+                return 1 + clearLines()
+            }
+        }
+        return 0
+    }
+
+    private fun fullLine(i : Int) : Boolean{
+        for(c : Cell in grid[i]){
+            if(c.isEmpty()){
+                return false
+            }
+        }
+        return true
+    }
+
+    private fun clearLine(i : Int){
+        for(j in 0 until width){
+            grid[i][j] = Cell()
+        }
+    }
+
+    private fun lowerAbove(i : Int){
+        for(j : Int in (i - 1) downTo 0){
+            lowerLine(j)
+        }
+        clearLine(0)
+    }
+
+    private fun lowerLine(i : Int){
+        for(k in 0 until width){
+            grid[i + 1][k] = grid[i][k]
+            grid[i][k] = Cell()
+        }
+    }
+
 }
 
 private val maxN : Int by lazy{

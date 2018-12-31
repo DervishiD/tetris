@@ -4,40 +4,43 @@ import main.randomVisibleColor
 import java.awt.Color
 import kotlin.random.Random
 
-class NMino(n : Int, startX : Int){
+class NMino(n : Int, startX : Int?){
 
     companion object {
         @JvmStatic public fun randomBlocks(n : Int, color : Color) : ArrayList<Block>{
-            var result : ArrayList<Block> = ArrayList<Block>()
-            result.add(Block(0, 0, color))
-            for(i in 1 until n){
-                var available : HashSet<Block> = Block.surroundings(result)
-                result.add(available.elementAt(Random.nextInt(0, available.size - 1)))
+            val result : ArrayList<Block> = ArrayList<Block>()
+            if(n > 0){
+                result.add(Block(0, 0, color))
+                for(i in 2..n){
+                    val available : ArrayList<Block> = Block.surroundings(result)
+                    result.add(available.elementAt(Random.nextInt(0, available.size - 1)))
+                }
             }
             return result
         }
     }
 
-    private var n : Int = n
-    private var color : Color = randomVisibleColor()
-    private var blocks : ArrayList<Block> = randomBlocks(n, color)
+    private val n : Int = n
+    public val color : Color = randomVisibleColor()
+    public val blocks : ArrayList<Block> = randomBlocks(n, color)
 
     init{
-        while(blocks[0].j < startX){
-            moveRight()
-        }
-        var mustGoDown : Boolean = false
-        do{
-            for(b : Block in blocks){
-                if(b.i < 0){
-                    mustGoDown = true
-                    break
+        if(startX != null){
+            for(i in 1..(Game.currentGame!!.grid.width / 2)){
+                forceMoveRight()
+            }
+            var mustGoDown : Boolean
+            do{
+                mustGoDown = false
+                for(b : Block in blocks){
+                    if(b.i < 0){
+                        mustGoDown = true
+                        forceMoveDown()
+                        break
+                    }
                 }
-            }
-            if(mustGoDown){
-                moveDown()
-            }
-        }while(mustGoDown)
+            }while(mustGoDown)
+        }
     }
 
     public fun moveLeft() : Boolean{
@@ -66,6 +69,12 @@ class NMino(n : Int, startX : Int){
         return true
     }
 
+    private fun forceMoveRight() {
+        for(b : Block in blocks){
+            b.moveRight()
+        }
+    }
+
     public fun moveDown() : Boolean{
         for(b : Block in blocks){
             b.moveDown()
@@ -77,6 +86,12 @@ class NMino(n : Int, startX : Int){
             return false
         }
         return true
+    }
+
+    private fun forceMoveDown() {
+        for(b : Block in blocks){
+            b.moveDown()
+        }
     }
 
     public fun rotate() : Boolean{
@@ -94,7 +109,7 @@ class NMino(n : Int, startX : Int){
         return true
     }
 
-    private fun isValidPosition() : Boolean{
+    public fun isValidPosition() : Boolean{
         for(b : Block in blocks){
             if(!b.isValidPosition()){
                 return false

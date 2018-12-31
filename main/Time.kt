@@ -30,9 +30,18 @@ private class Task(action : Action) : TimerTask(){
     }
 }
 
+private var gameTimer : Timer = Timer(false)
+
 public fun startGameTimer(){
-    Timer(false).schedule(Task{Game.currentGame!!.start()}, 2000)
+    gameTimer.schedule(Task{Game.currentGame!!.start()}, 2000)
 }
+
+public fun gameTick(tick : Long){
+    gameTimer.schedule(Task{Game.currentGame!!.act()}, tick)
+}
+
+
+
 
 
 
