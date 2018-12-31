@@ -5,6 +5,7 @@ import game.Grid
 import main.*
 import java.awt.Color
 import java.awt.Graphics
+import main.Key.*
 
 public class GameScreen(game : Game) : Screen() {
 
@@ -12,10 +13,19 @@ public class GameScreen(game : Game) : Screen() {
 
     init{
         previousScreen = this
+        startGameTimer()
     }
 
     public override fun reactTo(key: Key) {
-        //TODO
+        when(key){
+            LEFT -> game.nmino?.moveLeft()
+            RIGHT -> game.nmino?.moveRight()
+            DOWN ->
+                {game.nmino?.moveDown()
+                 game.nmino?.moveDown()}
+            ENTER -> game.nmino?.rotate()
+            ESCAPE -> println("TODO -- PAUSE MENU")
+        }
     }
 
     public override fun save() {
@@ -27,7 +37,6 @@ public class GameScreen(game : Game) : Screen() {
         g.fillRect(0, 0, FRAMEX, FRAMEY)
         drawGrid(game.grid, g)
     }
-
 
     private fun drawGrid(grid : Grid, g : Graphics){
         var x : Int = FRAMEX / 2 - grid.width * grid.squareSize / 2
@@ -46,7 +55,7 @@ public class GameScreen(game : Game) : Screen() {
         }else{
             g.color = c
             g.fillRect(x, y, squareSize, squareSize)
-            g.color = if(distance(c, Color.WHITE) >= distance(c, Color.BLACK)) Color.WHITE else Color.BLACK
+            g.color = if(distance(c, Color.BLACK) > distance(c, Color.WHITE)) Color.BLACK else if(nightMode) NIGHT_TEXT else Color.WHITE
             g.fillRect(x + squareSize * 2 / 3, y + squareSize / 6, squareSize / 6, squareSize * 2 / 3)
             g.fillRect(x + squareSize / 6, y + squareSize * 2 / 3, squareSize * 2 / 3, squareSize / 6)
         }

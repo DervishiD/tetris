@@ -1,13 +1,14 @@
 package main
 
-import java.util.Timer;
+import game.Game
+import java.util.Timer
 import java.util.TimerTask
 
 private const val DELAY : Long = 30
 
 private val STANDARD_ACTION : Action = {
     mainFrame.repaint()
-};
+}
 
 private var timer : Timer = Timer(false)
 private var standardTask : Task = Task(STANDARD_ACTION)
@@ -29,9 +30,9 @@ private class Task(action : Action) : TimerTask(){
     }
 }
 
-
-
-
+public fun startGameTimer(){
+    Timer(false).schedule(Task{Game.currentGame!!.start()}, 2000)
+}
 
 
 

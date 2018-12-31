@@ -124,7 +124,8 @@ public val CONFIRM_EXIT_ACTION : Action = {
 }
 
 public val START_ACTION : Action = {
-    ScreenManager.setScreen(GameScreen(Game(nSelector.selectedOption().toInt())))
+    Game.currentGame = Game(nSelector.selectedOption().toInt())
+    ScreenManager.setScreen(GameScreen(Game.currentGame!!))
 }
 
 public val NIGHT_COLOR_ACTION : Action = {
