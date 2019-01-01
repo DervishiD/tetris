@@ -53,6 +53,10 @@ public open class Selector(xPos : Int, yPos : Int, options : ArrayList<String>) 
         isActivated = false
     }
 
+    public fun reset(){
+        currentOption = 0
+    }
+
     public override fun paintComponent(g: Graphics?) {
         fm = g!!.getFontMetrics(font)
         var s : String = selectedOption()

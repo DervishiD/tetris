@@ -2,16 +2,16 @@ package game
 
 import display.ScreenManager
 import display.screen.EndGameScreen
-import javafx.stage.Screen
 import main.gameTick
 
 public class Game(n : Int){
 
     companion object {
-        @JvmStatic private val STARTING_TICK : Long= 750
-        @JvmStatic private val SCORE_PER_TICK : Long = 250
+        @JvmStatic private val STARTING_TICK : Long = 750
+        @JvmStatic private val SCORE_FOR_TICK_CHANGE : Long = 1000
+        @JvmStatic private val SCORE_FOR_NMINO : Long = 15
         @JvmStatic private val DELTA_TICK : Long = 50
-        @JvmStatic private val DELTA_SCORE : Long = 100
+        @JvmStatic private val SCORE_FOR_LINE : Long = 100
         @JvmStatic public var currentGame : Game? = null
     }
 
@@ -22,7 +22,7 @@ public class Game(n : Int){
     private var running : Boolean = true
 
     public fun tick() : Long{
-        return STARTING_TICK - (score / SCORE_PER_TICK) * DELTA_TICK
+        return STARTING_TICK - (score / SCORE_FOR_TICK_CHANGE) * DELTA_TICK
     }
 
     public fun start(){
@@ -41,10 +41,10 @@ public class Game(n : Int){
             if(!nmino.moveDown()){
                 writeNMino()
                 val clearedLines = grid.clearLines()
-                score += clearedLines * DELTA_SCORE
+                score += clearedLines * SCORE_FOR_LINE
                 nmino = NMino(n, grid.width / 2)
                 if(nmino.isValidPosition()){
-                    score += DELTA_SCORE / 10
+                    score += SCORE_FOR_NMINO
                     gameTick(tick())
                 }else{
                     end()
