@@ -3,10 +3,7 @@ package display
 import display.button.Button
 import display.button.Selector
 import display.button.Slider
-import display.screen.ExitScreen
-import display.screen.MainMenuScreen
-import display.screen.NewGameScreen
-import display.screen.OptionsScreen
+import display.screen.*
 import game.possibleN
 
 //SCREENS-----------------------------------------
@@ -32,6 +29,11 @@ public val dismissExitButton : Button by lazy{ Button(BACK_ACTION, DISMISS_EXIT_
 public val startButton : Button by lazy{ Button(START_ACTION, START_BUTTON_X, START_BUTTON_Y, "Start new game") }
 
 public val nightColorButton : Button by lazy{ Button(NIGHT_COLOR_ACTION, NIGHT_COLOR_X, NIGHT_COLOR_Y, "Night mode") }
+
+public val resumeButton : Button by lazy{ Button(RESUME_ACTION, RESUME_BUTTON_X, RESUME_BUTTON_Y, "Resume") }
+public val saveAndQuitButton : Button by lazy{ Button(SAVE_QUIT_ACTION, SAVE_QUIT_BUTTON_X, SAVE_QUIT_BUTTON_Y, "Save and quit") }
+
+public val backToMainMenuButton : Button by lazy{Button(BACK_ACTION, BACK_TO_MAIN_MENU_X, BACK_TO_MAIN_MENU_Y, "Back to main menu")}
 
 //SELECTORS-----------------------------------------
 
@@ -59,6 +61,7 @@ public val gLabel : Text by lazy{Text("Green", QUESTION_FONT, G_LABEL_X, G_LABEL
 
 public val bLabel : Text by lazy{Text("Blue", QUESTION_FONT, B_LABEL_X, B_LABEL_Y, B_LABEL_WIDTH, B_LABEL_HEIGHT)}
 
+public val pauseLabel : Text by lazy{Text("Pause", QUESTION_FONT, PAUSE_LABEL_X, PAUSE_LABEL_Y, PAUSE_LABEL_WIDTH, PAUSE_LABEL_HEIGHT)}
 
 
 

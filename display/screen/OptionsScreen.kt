@@ -61,11 +61,11 @@ class OptionsScreen : Screen() {
                 }
             UP ->
                 if(focusedSlider == null){
-                    nextButton()
+                    previousButton()
                 }
             DOWN ->
                 if(focusedSlider == null){
-                    previousButton()
+                    nextButton()
                 }
             LEFT ->
                 if(focusedSlider != null){

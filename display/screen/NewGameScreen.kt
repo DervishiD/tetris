@@ -45,11 +45,11 @@ public class NewGameScreen : Screen(){
                 }
             UP ->
                 if(focusedSelector == null){
-                    nextButton()
+                    previousButton()
                 }
             DOWN ->
                 if(focusedSelector == null){
-                    previousButton()
+                    nextButton()
                 }
             LEFT ->
                 if(focusedSelector != null){

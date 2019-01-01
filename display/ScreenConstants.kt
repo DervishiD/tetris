@@ -1,6 +1,7 @@
 package display
 
 import display.screen.GameScreen
+import display.screen.Screen
 import game.Game
 import main.*
 import java.awt.Font
@@ -91,6 +92,29 @@ public val COLOR_ARGUMENTS : ArrayList<String> = arrayListOf("16", "32", "48", "
                                                              "144", "160", "176", "192",
                                                              "208", "224", "240", "255")
 
+public val RESUME_BUTTON_X : Int = FRAMEX / 3
+public val RESUME_BUTTON_Y : Int = FRAMEY * 2 / 3
+
+public val SAVE_QUIT_BUTTON_X : Int = FRAMEX * 2 / 3
+public val SAVE_QUIT_BUTTON_Y : Int = RESUME_BUTTON_Y
+
+public const val PAUSE_LABEL_X : Int = 0
+public val PAUSE_LABEL_Y : Int = FRAMEY / 3
+public val PAUSE_LABEL_WIDTH : Int = FRAMEX
+public const val PAUSE_LABEL_HEIGHT : Int = 100
+
+public val BACK_TO_MAIN_MENU_X : Int = FRAMEX / 2
+public val BACK_TO_MAIN_MENU_Y : Int = FRAMEY * 3 / 4
+
+public val RESUME_ACTION : Action = {
+    ScreenManager.toPreviousScreen()
+    Game.currentGame!!.resume()
+}
+
+public val SAVE_QUIT_ACTION : Action = {
+    println("TODO -- SAVE AND QUIT ACTION")
+}
+
 public val EXIT_ACTION : Action = {
     ScreenManager.setScreen(exitScreen)
 }
@@ -135,5 +159,6 @@ public val NIGHT_COLOR_ACTION : Action = {
     nightMode = true
     BACK_ACTION.invoke()
 }
+
 
 

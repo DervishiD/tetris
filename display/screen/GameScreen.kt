@@ -1,5 +1,7 @@
 package display.screen
 
+import display.DEFAULT_BUTTON_FONT
+import display.ScreenManager
 import game.Block
 import game.Game
 import game.Grid
@@ -25,19 +27,25 @@ public class GameScreen(game : Game) : Screen() {
                 {game.nmino.moveDown()
                  game.nmino.moveDown()}
             ENTER -> game.nmino.rotate()
-            ESCAPE -> println("TODO -- PAUSE MENU")
+            ESCAPE -> {game.pause()
+                       ScreenManager.setScreen(PauseScreen(this))}
         }
     }
 
     public override fun save() {
-        //TODO
+        //NOTHING
     }
 
     public override fun paintComponent(g: Graphics?) {
-        g!!.color = backgroundColor
-        g.fillRect(0, 0, FRAMEX, FRAMEY)
+        fillBackground(g!!)
         drawGrid(game.grid, g)
         drawNMino(g)
+        drawScore(g)
+    }
+
+    private fun fillBackground(g : Graphics){
+        g.color = backgroundColor
+        g.fillRect(0, 0, FRAMEX, FRAMEY)
     }
 
     private fun drawGrid(grid : Grid, g : Graphics){
@@ -75,6 +83,13 @@ public class GameScreen(game : Game) : Screen() {
                     b.color,
                     g)
         }
+    }
+
+    private fun drawScore(g : Graphics){
+        g.color = textColor
+        g.font = DEFAULT_BUTTON_FONT
+        g.drawString("Score : " + (game.score).toString(), 0, FRAMEY / 2)
+        g.drawString("Tick : " + game.tick().toString() + " ms", 0, FRAMEY * 3 / 5)
     }
 
 }
