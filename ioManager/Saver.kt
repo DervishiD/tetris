@@ -6,8 +6,8 @@ import java.io.File
 import java.io.FileWriter
 
 private const val SAVES_FOLDER_NAME : String = "saves"
-private val SCORES_FILE_NAME : String = SAVES_FOLDER_NAME + "\\scores"
-private val GAMES_FOLDER_NAME : String = SAVES_FOLDER_NAME + "\\games"
+private const val SCORES_FILE_NAME : String = "$SAVES_FOLDER_NAME\\scores"
+private const val GAMES_FOLDER_NAME : String = "$SAVES_FOLDER_NAME\\games"
 
 public fun save(score : Int){
     var file : File = File(SCORES_FILE_NAME)
