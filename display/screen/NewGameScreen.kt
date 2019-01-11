@@ -68,6 +68,7 @@ public class NewGameScreen : Screen(){
 
     override public fun save(){
         nSelector.reset()
+        resetList()
     }
 
 }

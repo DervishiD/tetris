@@ -23,9 +23,7 @@ public class GameScreen(game : Game) : Screen() {
         when(key){
             LEFT -> game.nmino.moveLeft()
             RIGHT -> game.nmino.moveRight()
-            DOWN ->
-                {game.nmino.moveDown()
-                 game.nmino.moveDown()}
+            DOWN -> game.fastDescent = !(game.fastDescent)
             ENTER -> game.nmino.rotate()
             ESCAPE -> {game.pause()
                        ScreenManager.setScreen(PauseScreen(this))}

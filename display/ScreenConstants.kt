@@ -3,6 +3,7 @@ package display
 import display.screen.GameScreen
 import display.screen.Screen
 import game.Game
+import ioManager.save
 import main.*
 import java.awt.Font
 import java.awt.Font.BOLD
@@ -112,7 +113,9 @@ public val RESUME_ACTION : Action = {
 }
 
 public val SAVE_QUIT_ACTION : Action = {
-    println("TODO -- SAVE AND QUIT ACTION")
+    ScreenManager.setScreen(startMenu)
+    save(Game.currentGame!!)
+    Game.currentGame = null
 }
 
 public val EXIT_ACTION : Action = {

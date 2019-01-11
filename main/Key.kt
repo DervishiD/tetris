@@ -17,14 +17,18 @@ import java.awt.event.KeyEvent.VK_UP
 import java.awt.event.KeyEvent.VK_W
 
 enum class Key(vararg codes : Int){
-    
+
     LEFT(VK_A, VK_LEFT, VK_J),
     RIGHT(VK_D, VK_RIGHT, VK_L),
     UP(VK_W, VK_UP, VK_I),
     DOWN(VK_S, VK_DOWN, VK_K),
     ENTER(VK_ENTER, VK_SPACE),
     ESCAPE(VK_ESCAPE);
-    
+
+    companion object {
+        @JvmStatic public var lastPressed : Key = ESCAPE
+    }
+
     private var codes : IntArray = IntArray(0)
     
     init{
@@ -34,6 +38,7 @@ enum class Key(vararg codes : Int){
     public fun correspondsTo(code : Int) : Boolean{
         for(i : Int in codes){
             if(i == code){
+                lastPressed = this
                 return true
             }
         }

@@ -12,6 +12,10 @@ public class Grid(n : Int) {
     public val height : Int = 6 * n
     public val grid : Array<Array<Cell>> = Array(height){Array(width){Cell()}}
 
+    constructor(n : Int, iValues : IntArray, jValues : IntArray) : this(n){
+        //TO CREATE GRID FROM SAVE
+    }
+
     public fun clearLines() : Int{
         for(i in (height - 1) downTo 0){
             if(fullLine(i)){

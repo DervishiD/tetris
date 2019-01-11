@@ -15,6 +15,7 @@ public class Game(n : Int){
         @JvmStatic private val SCORE_FOR_LINE : Int = 100
         @JvmStatic private val GEOMETRIC_FACTOR : Double = 0.9
         @JvmStatic public var currentGame : Game? = null
+        @JvmStatic private val FAST_DESCENT_TICK : Long = 75
     }
 
     public var n : Int = n
@@ -22,6 +23,7 @@ public class Game(n : Int){
     public var grid : Grid = Grid(n)
     public var nmino : NMino = NMino(0, null)
     private var running : Boolean = true
+    public var fastDescent = false
 
     public fun tick() : Long{
         return (STARTING_TICK * pow(GEOMETRIC_FACTOR, (score / SCORE_FOR_TICK_CHANGE).toDouble())).toLong()
@@ -43,15 +45,16 @@ public class Game(n : Int){
             if(!nmino.moveDown()){
                 writeNMino()
                 val clearedLines = grid.clearLines()
-                score += clearedLines * SCORE_FOR_LINE
+                score += clearedLines * SCORE_FOR_LINE * (if(clearedLines == n) 2 else 1)
                 nmino = NMino(n, grid.width / 2)
                 if(nmino.isValidPosition()){
                     score += SCORE_FOR_NMINO
+                    fastDescent = false
                     gameTick(tick())
                 }else{
                     end()
                 }
-            }else gameTick(tick())
+            }else gameTick(if(fastDescent) FAST_DESCENT_TICK else tick())
         }
     }
 
