@@ -6,7 +6,7 @@ import ioManager.save
 import main.gameTick
 import java.lang.Math.pow
 
-public class Game(n : Int){
+public class Game(n : Int, score : Int = 0, grid : Grid = Grid(n)){
 
     companion object {
         @JvmStatic private val STARTING_TICK : Int = 750
@@ -19,8 +19,8 @@ public class Game(n : Int){
     }
 
     public var n : Int = n
-    public var score : Int = 0
-    public var grid : Grid = Grid(n)
+    public var score : Int = score
+    public var grid : Grid = grid
     public var nmino : NMino = NMino(0, null)
     private var running : Boolean = true
     public var fastDescent = false
