@@ -17,7 +17,7 @@ public class Game(n : Int){
         @JvmStatic public var currentGame : Game? = null
     }
 
-    private var n : Int = n
+    public var n : Int = n
     public var score : Int = 0
     public var grid : Grid = Grid(n)
     public var nmino : NMino = NMino(0, null)
@@ -35,7 +35,7 @@ public class Game(n : Int){
     public fun end(){
         pause()
         ScreenManager.setScreen(EndGameScreen(this))
-        save(score)
+        save(score, n)
     }
 
     public fun act(){
