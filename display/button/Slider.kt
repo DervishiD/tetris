@@ -24,18 +24,18 @@ public class Slider(yPos : Int, options : ArrayList<String>) : Selector(FRAMEX /
     public override fun paintComponent(g: Graphics?) {
         g!!.color = if(hasFocus) focusColor else textColor
         for(i : Int in 0..currentOption){
-            g!!.fillRect(arrowWidth + i * cellWidth, 0, cellWidth, bounds.height - 1)
+            g.fillRect(arrowWidth + i * cellWidth, 0, cellWidth, bounds.height - 1)
         }
         for(i : Int in currentOption + 1 until size){
-            g!!.drawRect(arrowWidth + i * cellWidth, 0, cellWidth, bounds.height - 1)
+            g.drawRect(arrowWidth + i * cellWidth, 0, cellWidth, bounds.height - 1)
         }
         if(isActivated){
-            g!!.color = ARROW_COLOR
-            g!!.fillPolygon(
+            g.color = arrowColor()
+            g.fillPolygon(
                     intArrayOf(0, arrowWidth, arrowWidth),
                     intArrayOf(bounds.height / 2, 0, bounds.height),
                     3)
-            g!!.fillPolygon(
+            g.fillPolygon(
                     intArrayOf(arrowWidth + WIDTH, arrowWidth + WIDTH, bounds.width),
                     intArrayOf(0, bounds.height, bounds.height / 2),
                     3)

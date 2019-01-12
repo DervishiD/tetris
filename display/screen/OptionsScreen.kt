@@ -2,12 +2,9 @@ package display.screen
 
 import display.*
 import display.button.Slider
+import main.*
 import java.awt.Color
-import main.backgroundColor
-import main.Key
 import main.Key.*
-import main.setFocusColor
-import main.setTextColor
 
 class OptionsScreen : Screen() {
 
@@ -28,9 +25,10 @@ class OptionsScreen : Screen() {
     }
 
     private fun updateColors(){
-        var r : Int = rSlider.selectedOption().toInt()
-        var g : Int = gSlider.selectedOption().toInt()
-        var b : Int = bSlider.selectedOption().toInt()
+        nightMode = false
+        val r : Int = rSlider.selectedOption().toInt()
+        val g : Int = gSlider.selectedOption().toInt()
+        val b : Int = bSlider.selectedOption().toInt()
         backgroundColor = Color(r, g, b)
         setTextColor()
         setFocusColor()

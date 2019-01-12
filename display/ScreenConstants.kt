@@ -1,8 +1,13 @@
 package display
 
+import display.ScreenManager.Companion.currentScreen
+import display.button.GameSelector
 import display.screen.GameScreen
+import display.screen.LoadGameScreen
 import display.screen.Screen
 import game.Game
+import ioManager.hasSavedGames
+import ioManager.readGame
 import ioManager.save
 import main.*
 import java.awt.Font
@@ -107,6 +112,17 @@ public const val PAUSE_LABEL_HEIGHT : Int = 100
 public val BACK_TO_MAIN_MENU_X : Int = FRAMEX / 2
 public val BACK_TO_MAIN_MENU_Y : Int = FRAMEY * 3 / 4
 
+public val GAME_SELECTOR_X : Int = FRAMEX / 2
+public val GAME_SELECTOR_Y : Int = FRAMEY / 2
+
+public const val LOAD_GAME_LABEL_X : Int = 0
+public val LOAD_GAME_LABEL_Y : Int = FRAMEY / 4
+public val LOAD_GAME_LABEL_WIDTH : Int = FRAMEX
+public const val LOAD_GAME_LABEL_HEIGHT : Int = 100
+
+public val LOAD_BUTTON_X : Int = FRAMEX / 2
+public val LOAD_BUTTON_Y : Int = FRAMEY * 4 / 5
+
 public val RESUME_ACTION : Action = {
     ScreenManager.toPreviousScreen()
     Game.currentGame!!.resume()
@@ -127,13 +143,13 @@ public val NEW_GAME_ACTION : Action = {
 }
 
 public val LOAD_GAME_ACTION : Action = {
-    //TODO
-    println("TODO -- LOAD GAME ACTION")
+    if(hasSavedGames()){
+        ScreenManager.setScreen(LoadGameScreen())
+    }
 }
 
 public val OPTIONS_ACTION : Action = {
     ScreenManager.setScreen(optionsScreen)
-    nightMode = false
 }
 
 public val STATS_ACTION : Action = {
@@ -163,5 +179,9 @@ public val NIGHT_COLOR_ACTION : Action = {
     BACK_ACTION.invoke()
 }
 
+public val LOAD_BUTTON_ACTION : Action = {
+    Game.currentGame = readGame((currentScreen() as LoadGameScreen).selectedGame())
+    ScreenManager.setScreen(GameScreen(Game.currentGame!!))
+}
 
 

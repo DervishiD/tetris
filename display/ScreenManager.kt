@@ -30,6 +30,10 @@ public class ScreenManager {
             mainFrame.contentPane = currentScreen
         }
 
+        @JvmStatic public fun currentScreen() : Screen{
+            return currentScreen
+        }
+
         @JvmStatic public fun reactToKey(code : Int){
             for(key : Key in Key.values()){
                 if(key.correspondsTo(code)){

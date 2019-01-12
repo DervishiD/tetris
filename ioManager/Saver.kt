@@ -7,11 +7,15 @@ import java.io.FileWriter
 import java.text.SimpleDateFormat
 import java.util.Date
 
+internal const val SEPARATOR : String = "-"
+internal const val LAST_INDICATOR : String = "l"
+internal const val BEST_INDICATOR : String = "b"
+
 internal const val SAVES_FOLDER_NAME : String = "saves"
 internal const val SCORES_FOLDER_NAME : String = "$SAVES_FOLDER_NAME\\scores"
 internal const val GAMES_FOLDER_NAME : String = "$SAVES_FOLDER_NAME\\games"
 
-private const val MAX_LAST_SCORES : Int = 10000
+private const val MAX_LAST_SCORES : Int = 500
 private const val MAX_BEST_SCORES : Int = 10
 
 public fun save(score : Int, n : Int){
@@ -19,8 +23,8 @@ public fun save(score : Int, n : Int){
     if(!(scoresFolder.exists())){
         scoresFolder.mkdirs()
     }
-    val nLastName : String = "$SCORES_FOLDER_NAME\\${n}l"
-    val nBestName : String = "$SCORES_FOLDER_NAME\\${n}b"
+    val nLastName : String = "$SCORES_FOLDER_NAME\\$n$LAST_INDICATOR"
+    val nBestName : String = "$SCORES_FOLDER_NAME\\$n$BEST_INDICATOR"
     val nFileLast : File = File(nLastName).also { if(!(it.exists())) it.createNewFile() }
     val nFileBest : File = File(nBestName).also { if(!(it.exists())) it.createNewFile() }
     val nBest : ArrayList<Int> = readBestScores(n)
@@ -72,7 +76,7 @@ public fun save(game : Game){
     if(!(gamesFolder.exists())){
         gamesFolder.mkdirs()
     }
-    val fileName = GAMES_FOLDER_NAME + "\\" + game.n + "-" + game.score + "-" + SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(Date())
+    val fileName = GAMES_FOLDER_NAME + "\\" + game.n + SEPARATOR + game.score + SEPARATOR + SimpleDateFormat("yyyy${SEPARATOR}MM${SEPARATOR}dd${SEPARATOR}HH${SEPARATOR}mm${SEPARATOR}ss").format(Date())
     val file : File = File(fileName).also { it.createNewFile() }
     var writer : BufferedWriter = BufferedWriter(FileWriter(fileName, false))
     var notFirstOne : Boolean = false
@@ -84,7 +88,7 @@ public fun save(game : Game){
                 }else{
                     notFirstOne = true
                 }
-                writer.write(i.toString() + "-" + j.toString())
+                writer.write(i.toString() + SEPARATOR + j.toString())
             }
         }
     }

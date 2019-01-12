@@ -135,8 +135,9 @@ class NMino(n : Int, startX : Int?){
     }
 
     public fun rotate() : Boolean{
-        val previousPosition : ArrayList<Block> = blocks
+        val previousPosition : ArrayList<Block> = ArrayList<Block>()
         for(i : Int in 0 until n){
+            previousPosition.add(Block(blocks[i].i, blocks[i].j, blocks[i].color))
             blocks[i].rotateAround(pivot())
         }
         if(!isValidPosition()){

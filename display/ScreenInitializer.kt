@@ -1,6 +1,7 @@
 package display
 
 import display.button.Button
+import display.button.GameSelector
 import display.button.Selector
 import display.button.Slider
 import display.screen.*
@@ -35,6 +36,8 @@ public val saveAndQuitButton : Button by lazy{ Button(SAVE_QUIT_ACTION, SAVE_QUI
 
 public val backToMainMenuButton : Button by lazy{Button(BACK_ACTION, BACK_TO_MAIN_MENU_X, BACK_TO_MAIN_MENU_Y, "Back to main menu")}
 
+public val loadButton : Button by lazy { Button(LOAD_BUTTON_ACTION, LOAD_BUTTON_X, LOAD_BUTTON_Y, "Load") }
+
 //SELECTORS-----------------------------------------
 
 public val nSelector : Selector by lazy{ Selector(N_SELECTOR_X, N_SELECTOR_Y, possibleN()) } //TODO -- REFACTOR LIST
@@ -62,6 +65,8 @@ public val gLabel : Text by lazy{Text("Green", QUESTION_FONT, G_LABEL_X, G_LABEL
 public val bLabel : Text by lazy{Text("Blue", QUESTION_FONT, B_LABEL_X, B_LABEL_Y, B_LABEL_WIDTH, B_LABEL_HEIGHT)}
 
 public val pauseLabel : Text by lazy{Text("Pause", QUESTION_FONT, PAUSE_LABEL_X, PAUSE_LABEL_Y, PAUSE_LABEL_WIDTH, PAUSE_LABEL_HEIGHT)}
+
+public val loadGameLabel : Text by lazy{Text("Load Game", QUESTION_FONT, LOAD_GAME_LABEL_X, LOAD_GAME_LABEL_Y, LOAD_GAME_LABEL_WIDTH, LOAD_GAME_LABEL_HEIGHT)}
 
 
 

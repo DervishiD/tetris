@@ -2,6 +2,7 @@ package game
 
 import main.FRAMEX
 import main.FRAMEY
+import main.textColor
 import java.lang.Exception
 import kotlin.math.min
 
@@ -12,8 +13,11 @@ public class Grid(n : Int) {
     public val height : Int = 6 * n
     public val grid : Array<Array<Cell>> = Array(height){Array(width){Cell()}}
 
-    constructor(n : Int, iValues : IntArray, jValues : IntArray) : this(n){
-        //TO CREATE GRID FROM SAVE
+    constructor(n : Int, iValues : ArrayList<Int>, jValues : ArrayList<Int>) : this(n){
+        val size : Int = if(iValues.size == jValues.size) iValues.size else 0
+        for(k : Int in 0 until size){
+            grid[iValues[k]][jValues[k]].set(Block(iValues[k], jValues[k], textColor))
+        }
     }
 
     public fun clearLines() : Int{
