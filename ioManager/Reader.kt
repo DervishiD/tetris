@@ -7,25 +7,30 @@ import java.io.File
 import java.io.FileReader
 
 public fun readBestScores(n : Int) : ArrayList<Int>{
-    val file : File = File("$SCORES_FOLDER_NAME\\$n$BEST_INDICATOR") //must exist if this is called
-    val reader : BufferedReader = BufferedReader(FileReader(file))
+    val file : File = File("$SCORES_FOLDER_NAME\\$n$BEST_INDICATOR")
     var result : ArrayList<Int> = ArrayList<Int>()
-    for(line : String in reader.lines()){
-        result.add(line.toInt())
+    if(file.isFile){
+        val reader : BufferedReader = BufferedReader(FileReader(file))
+        for(line : String in reader.lines()){
+            result.add(line.toInt())
+        }
     }
     return result
 }
 
 public fun readLastScores(n : Int) : ArrayList<Int>{
-    val file : File = File("$SCORES_FOLDER_NAME\\$n$LAST_INDICATOR") //must exist if this is called
-    val reader : BufferedReader = BufferedReader(FileReader(file))
+    val file : File = File("$SCORES_FOLDER_NAME\\$n$LAST_INDICATOR")
     var result : ArrayList<Int> = ArrayList<Int>()
-    for(line : String in reader.lines()){
-        result.add(line.toInt())
+    if(file.isFile){
+        val reader : BufferedReader = BufferedReader(FileReader(file))
+        for(line : String in reader.lines()){
+            result.add(line.toInt())
+        }
     }
     return result
 }
 
+/*name always exists*/
 public fun readGame(name : String) : Game{
     val iValues : ArrayList<Int> = ArrayList<Int>()
     val jValues : ArrayList<Int> = ArrayList<Int>()

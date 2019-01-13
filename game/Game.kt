@@ -14,6 +14,7 @@ public class Game(n : Int, score : Int = 0, grid : Grid = Grid(n)){
         @JvmStatic private val SCORE_FOR_NMINO : Int = 15
         @JvmStatic private val SCORE_FOR_LINE : Int = 100
         @JvmStatic private val GEOMETRIC_FACTOR : Double = 0.9
+        @JvmStatic private val COMBO_BONUS : Int = SCORE_FOR_LINE / 4
         @JvmStatic public var currentGame : Game? = null
         @JvmStatic private val FAST_DESCENT_TICK : Long = 75
     }
@@ -45,7 +46,8 @@ public class Game(n : Int, score : Int = 0, grid : Grid = Grid(n)){
             if(!nmino.moveDown()){
                 writeNMino()
                 val clearedLines = grid.clearLines()
-                score += clearedLines * SCORE_FOR_LINE * (if(clearedLines == n) 2 else 1)
+                score += clearedLines * SCORE_FOR_LINE * (if(clearedLines == n) 3 / 2 else 1)
+                score += if(clearedLines > 1) COMBO_BONUS * clearedLines / n else 0
                 nmino = NMino(n, grid.width / 2)
                 if(nmino.isValidPosition()){
                     score += SCORE_FOR_NMINO

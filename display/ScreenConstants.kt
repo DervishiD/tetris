@@ -53,7 +53,7 @@ public val DEFAULT_BUTTON_FONT : Font = Font("Monospaced", BOLD, 24)
 
 public val TITLE_FONT : Font = Font("Monospaced", BOLD, 40)
 
-public val QUESTION_FONT : Font = Font("Monospaced", BOLD, 24)
+public val QUESTION_FONT : Font = Font("Monospaced", BOLD, 32)
 
 public val N_QU_WIDTH : Int = FRAMEX
 public const val N_QU_HEIGHT : Int = 100
@@ -123,6 +123,14 @@ public const val LOAD_GAME_LABEL_HEIGHT : Int = 100
 public val LOAD_BUTTON_X : Int = FRAMEX / 2
 public val LOAD_BUTTON_Y : Int = FRAMEY * 4 / 5
 
+public val STATS_SELECTOR_X : Int = FRAMEX / 2
+public val STATS_SELECTOR_Y : Int = FRAMEY / 3
+
+public const val STATS_LABEL_X : Int = 0
+public val STATS_LABEL_Y : Int = FRAMEY / 6
+public val STATS_LABEL_WIDTH : Int = FRAMEX
+public const val STATS_LABEL_HEIGHT : Int = 100
+
 public val RESUME_ACTION : Action = {
     ScreenManager.toPreviousScreen()
     Game.currentGame!!.resume()
@@ -153,8 +161,7 @@ public val OPTIONS_ACTION : Action = {
 }
 
 public val STATS_ACTION : Action = {
-    //TODO
-    println("TODO : WRITE STATS ACTION")
+    ScreenManager.setScreen(statsScreen)
 }
 
 public val BACK_ACTION : Action = {

@@ -27,6 +27,7 @@ public class NewGameScreen : Screen(){
                     BACK_ACTION.invoke()
                 }else{
                     focusedSelector!!.unfocus()
+                    focusedSelector!!.deactivate()
                     focusedSelector = null
                 }
             ENTER ->
