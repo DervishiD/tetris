@@ -161,6 +161,7 @@ public val OPTIONS_ACTION : Action = {
 }
 
 public val STATS_ACTION : Action = {
+    statsScreen.refreshData()
     ScreenManager.setScreen(statsScreen)
 }
 

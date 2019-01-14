@@ -125,8 +125,8 @@ class StatsScreen : Screen() {
         }
     }
 
-    private fun refreshData(){
-        currentN = focusedSelector!!.selectedOption().toInt()
+    public fun refreshData(){
+        currentN = statsSelector.selectedOption().toInt()
         bestScores = readBestScores(currentN)
         lastScores = readLastScores(currentN)
         bestMean = computeBestMean()

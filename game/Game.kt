@@ -16,7 +16,7 @@ public class Game(n : Int, score : Int = 0, grid : Grid = Grid(n)){
         @JvmStatic private val GEOMETRIC_FACTOR : Double = 0.9
         @JvmStatic private val COMBO_BONUS : Int = SCORE_FOR_LINE / 4
         @JvmStatic public var currentGame : Game? = null
-        @JvmStatic private val FAST_DESCENT_TICK : Long = 75
+        @JvmStatic private val FAST_DESCENT_TICK : Long = 40
     }
 
     public var n : Int = n
